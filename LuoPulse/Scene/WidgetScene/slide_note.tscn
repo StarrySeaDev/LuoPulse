@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqvnxsh4ii138"]
+
+[ext_resource type="Script" path="res://SlideNote.gd" id="1_oe6rp"]
+[ext_resource type="Texture2D" uid="uid://bd86ahg4iocpy" path="res://Resource/Img/NoteSingle.png" id="2_lbpqw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkyk1"]
+size = Vector2(96, 48)
+
+[node name="SlideNote" type="CharacterBody2D"]
+script = ExtResource("1_oe6rp")
+
+[node name="NoteSlide" type="Sprite2D" parent="."]
+position = Vector2(0, -1.90735e-06)
+scale = Vector2(0.5, 0.6)
+texture = ExtResource("2_lbpqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gkyk1")
