@@ -1,6 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dyks0bvgddfmg"]
-
-[ext_resource type="Script" path="res://Script/gpu_particles_2d.gd" id="1_syt1x"]
+[gd_scene load_steps=6 format=3 uid="uid://dyks0bvgddfmg"]
 
 [sub_resource type="Gradient" id="Gradient_26a68"]
 offsets = PackedFloat32Array(0, 0.00534759, 0.272727, 0.973262, 1)
@@ -37,4 +35,3 @@ process_material = SubResource("ParticleProcessMaterial_vb2fx")
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
-script = ExtResource("1_syt1x")

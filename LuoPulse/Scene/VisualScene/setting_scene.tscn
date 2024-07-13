@@ -108,8 +108,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_v8qym")
 theme_override_font_sizes/font_size = 25
-text = "res://MscList/"
-placeholder_text = "path..."
+placeholder_text = "X:/XX/XX/MscList/"
 text_direction = 1
 
 [node name="VSeparator" type="VSeparator" parent="ScrollContainer/HBoxContainer/Path"]
@@ -136,7 +135,7 @@ theme_override_fonts/font = ExtResource("1_v8qym")
 theme_override_font_sizes/font_size = 23
 item_count = 1
 selected = 0
-popup/item_0/text = "  D  "
+popup/item_0/text = "D"
 popup/item_0/id = 0
 
 [node name="VSeparator" type="VSeparator" parent="ScrollContainer/HBoxContainer/KeyHBoxContainer1"]
@@ -159,7 +158,7 @@ theme_override_fonts/font = ExtResource("1_v8qym")
 theme_override_font_sizes/font_size = 23
 item_count = 1
 selected = 0
-popup/item_0/text = "  F  "
+popup/item_0/text = "F"
 popup/item_0/id = 0
 
 [node name="VSeparator" type="VSeparator" parent="ScrollContainer/HBoxContainer/KeyHBoxContainer2"]
@@ -182,7 +181,7 @@ theme_override_fonts/font = ExtResource("1_v8qym")
 theme_override_font_sizes/font_size = 23
 item_count = 1
 selected = 0
-popup/item_0/text = "  J  "
+popup/item_0/text = " J"
 popup/item_0/id = 0
 
 [node name="VSeparator" type="VSeparator" parent="ScrollContainer/HBoxContainer/KeyHBoxContainer3"]
@@ -205,10 +204,56 @@ theme_override_fonts/font = ExtResource("1_v8qym")
 theme_override_font_sizes/font_size = 23
 item_count = 1
 selected = 0
-popup/item_0/text = "  K  "
+popup/item_0/text = "K"
 popup/item_0/id = 0
 
 [node name="VSeparator" type="VSeparator" parent="ScrollContainer/HBoxContainer/KeyHBoxContainer4"]
+layout_mode = 2
+
+[node name="KeyHBoxContainer5" type="HBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/KeyHBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_v8qym")
+theme_override_font_sizes/font_size = 25
+text = " 暂停游戏 PAUSE"
+
+[node name="OptionButton" type="OptionButton" parent="ScrollContainer/HBoxContainer/KeyHBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("1_v8qym")
+theme_override_font_sizes/font_size = 23
+item_count = 1
+selected = 0
+popup/item_0/text = "ESC"
+popup/item_0/id = 0
+
+[node name="VSeparator" type="VSeparator" parent="ScrollContainer/HBoxContainer/KeyHBoxContainer5"]
+layout_mode = 2
+
+[node name="KeyHBoxContainer6" type="HBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/KeyHBoxContainer6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_v8qym")
+theme_override_font_sizes/font_size = 25
+text = " 继续游戏 RESUME"
+
+[node name="OptionButton" type="OptionButton" parent="ScrollContainer/HBoxContainer/KeyHBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("1_v8qym")
+theme_override_font_sizes/font_size = 23
+item_count = 1
+selected = 0
+popup/item_0/text = "SPACE"
+popup/item_0/id = 0
+
+[node name="VSeparator" type="VSeparator" parent="ScrollContainer/HBoxContainer/KeyHBoxContainer6"]
 layout_mode = 2
 
 [node name="Buttons" type="HBoxContainer" parent="."]

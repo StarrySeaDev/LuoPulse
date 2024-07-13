@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://du5po75t5by2" path="res://Resource/Font/汉仪洛天依体简.ttf" id="2_jllik"]
 
 [node name="FinishedPanel" type="Panel"]
-self_modulate = Color(0, 0, 0, 0.615686)
+self_modulate = Color(0, 0, 0, 0.764706)
 top_level = true
 offset_left = -579.0
 offset_top = -328.0
@@ -14,15 +14,17 @@ script = ExtResource("1_xkojb")
 
 [node name="TitleLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 455.0
-offset_top = 53.0
-offset_right = 708.0
-offset_bottom = 135.0
+offset_left = 194.0
+offset_top = 52.0
+offset_right = 967.0
+offset_bottom = 134.0
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("2_jllik")
 theme_override_font_sizes/font_size = 60
 text = "TITLE"
 horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
 
 [node name="InfoVBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
