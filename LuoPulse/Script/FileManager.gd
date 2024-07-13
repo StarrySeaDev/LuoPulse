@@ -12,5 +12,3 @@ func read_msclist():
 			break;
 		print(data)
 	file.close()
-	
-		

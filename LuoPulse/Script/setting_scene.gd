@@ -1,5 +1,6 @@
 extends Control
 
+
 # 误差调整
 @onready var adjust = $ScrollContainer/HBoxContainer/Adjust/AdjustSpinBox
 
@@ -9,6 +10,8 @@ extends Control
 # 歌单路径
 @onready var path = $ScrollContainer/HBoxContainer/Path/PathTextEdit
 
+
+# 恢复默认
 func default_setting():
 	adjust.value = GlobalSystem.default_adjustment
 	volume.value = GlobalSystem.default_volume
@@ -19,22 +22,20 @@ func _ready():
 	adjust.value = GlobalSystem.saved_adjustment
 	volume.value = GlobalSystem.saved_volume
 	path.text = GlobalSystem.saved_msclist_path
-	
-	
-func _process(delta):
-	pass
 
 
+# 按下恢复默认按钮
 func _on_default_button_button_down():
 	GlobalScene.play_click_audio()
 	default_setting()
 
 
+# 保存更改按钮
 func _on_save_button_button_down():
-	
 	GlobalScene.set_volume(volume.value)
 	GlobalScene.play_click_audio()
 	
+	# 检查路径最后是否有 /
 	if path.text[path.text.length() - 1] != "/" and path.text[path.text.length() - 1] != "\\":
 		path.text += "/"
 	
@@ -49,5 +50,6 @@ func _on_volume_h_slider_value_changed(value):
 	GlobalScene.play_click_audio()
 
 
+@warning_ignore("unused_parameter")
 func _on_adjust_spin_box_value_changed(value):
 	GlobalScene.play_click_audio()

@@ -1,5 +1,6 @@
 extends Control
 
+
 # 右边容器中的标题
 @onready var MscTitleLable = $"../../../../Right/MscTitleLable"
 
@@ -14,21 +15,17 @@ extends Control
 
 
 func set_score():
+	# 记录歌曲分数的文件
 	var file_path = GlobalSystem.saved_msclist_path + MscTitle.text + "/" + "score.txt"
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	
+	# 未打开文件, 分数设 0
 	if file == null or !file.is_open():
-		print("cannont open the file", file_path)
-		print("cannont open the file", file_path)
-		print("cannont open the file", file_path)
 		$ScoreTitle.text = str(0)
 		return
 	
 	if file.is_open():
 		var data = file.get_as_text()
-		print(data)
-		print(data)
-		print(data)
 		$ScoreTitle.text = data
 
 
@@ -37,7 +34,11 @@ func _on_info_button_button_down():
 	GlobalScene.play_click_audio()
 	
 	# 加载歌曲封面图
-	BKImg.texture = ImageTexture.create_from_image(Image.load_from_file(GlobalSystem.saved_msclist_path + MscTitle.text + "/cover.png"))
+	BKImg.texture = ImageTexture.create_from_image(
+		Image.load_from_file(
+			GlobalSystem.saved_msclist_path + MscTitle.text + "/cover.png"
+		)
+	)
 	
 	# 如果加载失败使用这一张图
 	if BKImg.texture == null:
@@ -56,11 +57,9 @@ func _on_info_button_button_down():
 	)
 	
 	if file == null:
-		print("cannot open file")
 		return
 	
 	if !file.is_open():
-		print("cannot open file")
 		return
 	
 	while true:

@@ -12,13 +12,13 @@ var default_adjustment = 0
 
 var default_volume = 50
 
-var default_msclist_path = "res://Resource/MscList/"
+var default_msclist_path = "D:/MscList/"
 
 var saved_adjustment = 0
 
 var saved_volume = 50
 
-var saved_msclist_path = "res://Resource/MscList/"
+var saved_msclist_path = "D:/MscList/"
 
 var saved_difficulty = 1
 
@@ -43,6 +43,7 @@ var is_running_note = false
 
 func _ready():
 	pass
+
 
 func init():
 	missing_count = 0

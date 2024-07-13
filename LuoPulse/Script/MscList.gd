@@ -1,7 +1,9 @@
 extends VBoxContainer
 
-# 歌单加载路径 (后续添加到 setting 界面以更改路径)
+
+# 歌单加载路径
 var file_path = GlobalSystem.saved_msclist_path + "MscList.txt"
+
 
 func _ready():
 	
@@ -9,11 +11,9 @@ func _ready():
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	
 	if file == null:
-		print("cannot open file")
 		return
 	
 	if !file.is_open():
-		print("error open file")
 		return
 	
 	while true:
@@ -31,9 +31,9 @@ func _ready():
 		# 设置歌单中歌曲标题
 		instance.get_node("MscTitle").text = data
 		instance.set_score()
-		#################################################3
-		
-	file.close()	# 关闭文件
+	
+	# 关闭文件
+	file.close()
 	
 	# 在歌单最后添加分割线
 	var separator = HSeparator.new()
