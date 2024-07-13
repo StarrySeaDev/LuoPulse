@@ -25,9 +25,9 @@
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1756123530&bvid=BV1N4421U7RA&cid=1612734695&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
+> 谱面这部分仍在开发中, 后续可能会有变更
+
 ---
 [去 B 站支持一下本 UP 吧](https://www.bilibili.com/video/BV1dr421T7Ea/?share_source=copy_web&vd_source=2209f3963a4e14b09226220545354335)
 
 [也要多多支持中V的发展哦](https://space.bilibili.com/10878474?spm_id_from=333.337.0.0)
-
-> 谱面这部分仍在开发中, 后续可能会有变更
