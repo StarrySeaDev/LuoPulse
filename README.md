@@ -20,6 +20,14 @@
 
    2. [《为了你唱下去》](https://www.bilibili.com/video/BV1ts411y7FY/?share_source=copy_web&vd_source=2209f3963a4e14b09226220545354335)
 
+## 开发计划
+-[]重构UI(进行中，完成后发布第一个测试版)
+-[]优化项目结构
+-[]优化资源管理与游戏配置流程
+-[]完善游戏机制
+-[]铺面文件结构改进
+-[]云曲库
+
 ## 带有些瑕疵的作品
 
 [游戏 demo](https://www.bilibili.com/video/BV1dr421T7Ea/?share_source=copy_web&vd_source=2209f3963a4e14b09226220545354335)
