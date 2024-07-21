@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cojwyjeq1a47n"]
+
+[ext_resource type="Script" path="res://Script/WidgetsScript/title_bar.gd" id="1_48aku"]
+[ext_resource type="Texture2D" uid="uid://bveilw1e57ysq" path="res://Resource/Icons/caret-left-fill.svg" id="2_kecup"]
+
+[node name="title_bar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_48aku")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "标题栏"
+icon = ExtResource("2_kecup")
+flat = true
+alignment = 0
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]

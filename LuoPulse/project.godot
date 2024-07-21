@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="LouPulse"
+config/name="LuoPulse"
 run/main_scene="res://Scene/VisualScene/start_scene.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon-LP.png"
