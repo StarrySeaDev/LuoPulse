@@ -230,6 +230,7 @@ text = "洛天依12周年生日快乐!"
 [node name="Button" type="Button" parent="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
+size_flags_vertical = 4
 text = "GitHub"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer"]
@@ -255,15 +256,15 @@ label_settings = SubResource("LabelSettings_12bve")
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="HeadImg" type="TextureRect" parent="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 texture = ExtResource("5_c0lpm")
-expand_mode = 4
+expand_mode = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "include源来是小白"
+text = "Include源来是小白"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -276,3 +277,5 @@ text = "BiliBili"
 [node name="Button2" type="Button" parent="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "GitHub"
+
+[connection signal="pressed" from="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
