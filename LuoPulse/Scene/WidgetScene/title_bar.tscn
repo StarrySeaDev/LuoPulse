@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://cojwyjeq1a47n"]
 
-[ext_resource type="Script" path="res://Script/WidgetsScript/title_bar.gd" id="1_48aku"]
+[ext_resource type="Script" path="res://Script/Widgets/title_bar.gd" id="1_48aku"]
 [ext_resource type="Texture2D" uid="uid://bveilw1e57ysq" path="res://Resource/Icons/caret-left-fill.svg" id="2_kecup"]
+
 
 [node name="title_bar" type="Control"]
 layout_mode = 3

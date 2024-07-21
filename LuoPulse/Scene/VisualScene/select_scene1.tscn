@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcmwedavamcvl"]
+[gd_scene load_steps=7 format=3 uid="uid://dcmwedavamcvl"]
 
 [ext_resource type="Theme" uid="uid://cr5645fhno242" path="res://Resource/UITheme.tres" id="1_76krm"]
 [ext_resource type="Texture2D" uid="uid://cpgsf8udt415i" path="res://Resource/Img/17.png" id="1_taakf"]
 [ext_resource type="PackedScene" uid="uid://cojwyjeq1a47n" path="res://Scene/WidgetScene/title_bar.tscn" id="2_8qm17"]
 [ext_resource type="Script" path="res://Script/VisualScenes/select_scene.gd" id="2_myfy1"]
-[ext_resource type="Script" path="res://Script/VisualScenes/select_scene/msc_list.gd" id="5_fk488"]
 [ext_resource type="Texture2D" uid="uid://bcyr7iplpdln4" path="res://Resource/Icons/play-fill_lowdpi.svg" id="6_esfl0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l0kkl"]
@@ -54,7 +53,6 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 theme = ExtResource("1_76krm")
 allow_search = false
-script = ExtResource("5_fk488")
 
 [node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -74,10 +72,6 @@ layout_mode = 2
 text = "歌曲名"
 label_settings = SubResource("LabelSettings_l0kkl")
 
-[node name="SongInfo" type="GridContainer" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
-layout_mode = 2
-columns = 2
-
 [node name="LevelBar" type="TabBar" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
 layout_mode = 2
 tab_count = 3
@@ -95,7 +89,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 8
 text = "最高分  "
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer"]
+[node name="StartButton" type="Button" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 icon = ExtResource("6_esfl0")
+
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/MscList" to="." method="_on_msc_list_item_selected"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
