@@ -59,3 +59,8 @@ locale/locale_filter_mode=1
 
 2d_physics/layer_1="Decision"
 2d_physics/layer_2="Click"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

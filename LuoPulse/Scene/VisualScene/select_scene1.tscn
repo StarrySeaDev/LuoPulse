@@ -56,16 +56,12 @@ theme = ExtResource("1_76krm")
 allow_search = false
 script = ExtResource("5_fk488")
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MscList"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 31.0
-
 [node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -73,25 +69,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
+[node name="SongName" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
 layout_mode = 2
+text = "歌曲名"
 label_settings = SubResource("LabelSettings_l0kkl")
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
+[node name="SongInfo" type="GridContainer" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
 layout_mode = 2
+columns = 2
 
-[node name="ItemList" type="ItemList" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
+[node name="LevelBar" type="TabBar" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
 layout_mode = 2
-allow_search = false
-auto_height = true
-item_count = 3
-item_0/text = "easy"
-item_1/text = "normal"
-item_2/text = "hard"
+tab_count = 3
+tab_0/title = "简单"
+tab_1/title = "容易"
+tab_2/title = "困难"
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
 size_flags_vertical = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "最高分  "
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
 icon = ExtResource("6_esfl0")
-icon_alignment = 1

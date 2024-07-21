@@ -22,6 +22,10 @@ var saved_msclist_path = "D:/MscList/"
 
 var saved_difficulty = 1
 
+var saved_track_key = ['D', 'F', 'J', 'K']
+
+var saved_bg_light = 50
+
 var missing_count = 0
 
 var perfect_count = 0
