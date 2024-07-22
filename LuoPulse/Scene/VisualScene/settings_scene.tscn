@@ -79,7 +79,7 @@ layout_mode = 2
 [node name="PathLable" type="Label" parent="VBoxContainer/TabContainer/游戏/MarginContainer/VBoxContainer/Path"]
 layout_mode = 2
 size_flags_horizontal = 2
-text = "歌单路径"
+text = "歌单路径(按Enter提交)"
 
 [node name="PathTextEdit" type="LineEdit" parent="VBoxContainer/TabContainer/游戏/MarginContainer/VBoxContainer/Path"]
 layout_mode = 2
@@ -92,7 +92,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/游戏/MarginContainer/VBoxContainer/TrackKey"]
 layout_mode = 2
-text = "键位设置"
+text = "键位设置(未实装)"
 label_settings = SubResource("LabelSettings_s2syy")
 
 [node name="Track1" type="HBoxContainer" parent="VBoxContainer/TabContainer/游戏/MarginContainer/VBoxContainer/TrackKey"]
@@ -212,7 +212,7 @@ layout_mode = 2
 [node name="LightLable" type="Label" parent="VBoxContainer/TabContainer/视频/MarginContainer/VBoxContainer/Light"]
 layout_mode = 2
 size_flags_horizontal = 2
-text = "音量"
+text = "背景亮度(未实装)"
 
 [node name="LightHSlider" type="HSlider" parent="VBoxContainer/TabContainer/视频/MarginContainer/VBoxContainer/Light"]
 layout_mode = 2

@@ -1,8 +1,10 @@
 extends Control
 
 @onready var mscListView = $VBoxContainer/HBoxContainer/MscList
-@onready var songName = $VBoxContainer/HBoxContainer/Control/VBoxContainer/SongName
+@onready var mscName = $VBoxContainer/HBoxContainer/Control/VBoxContainer/MscName
 @onready var textureRect = $TextureRect
+@onready var mscInfoView = $VBoxContainer/HBoxContainer/Control/VBoxContainer/MscInfoView
+@onready var scoreLabel = $VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer/ScoreLabel
 
 # 歌曲列表
 var mscList = []
@@ -31,7 +33,7 @@ func _ready():
 		get_msc_info()
 		set_info()
 		$VBoxContainer/HBoxContainer/Control/ColorRect.visible = true
-		get_node("VBoxContainer/HBoxContainer/Control/VBoxContainer").visible = true
+		$VBoxContainer/HBoxContainer/Control/VBoxContainer.visible = true
 		mscListView.select(currentIndex)
 	
 func _process(delta):
@@ -78,29 +80,40 @@ func get_score():
 
 # 获取歌曲信息
 func get_msc_info():
-	
-	for i in mscList:
-		# 打开记录歌曲详细信息的文件
-		var file = FileAccess.open(
-			GlobalSystem.saved_msclist_path + i + "/info.txt", 
-			FileAccess.READ
-		)
+	# 清除上一首歌曲信息
+	mscInfo.clear()
+	# 打开记录歌曲详细信息的文件
+	var file = FileAccess.open(
+		GlobalSystem.saved_msclist_path + mscList[currentIndex] + "/info.txt", 
+		FileAccess.READ
+	)
 		
-		while true:
-			var data = file.get_line()  	# 逐行读取文件内容
-			if data == "":  				# 判空跳过
-				continue
-			if data == "<EOF>": 			# 文件结束标志
-				break
-			mscInfo.append(data) # 加入列表
-		file.close()
+	while true:
+		var data = file.get_line()  	# 逐行读取文件内容
+		if data == "":  				# 判空跳过
+			continue
+		if data == "<EOF>": 			# 文件结束标志
+			break
+		mscInfo.append(data) # 加入列表
+	file.close()
 
-# 
+# 设置信息
 func set_info():
-	$VBoxContainer/HBoxContainer/Control/VBoxContainer/SongName.text = mscList[currentIndex]
-	$VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer/ScoreLabel.text = "最高分" + score[currentIndex]
-	$VBoxContainer/HBoxContainer/Control/VBoxContainer/SongInfoLabel.text = mscInfo[currentIndex]
-	$TextureRect.texture = ImageTexture.create_from_image(
+	
+	# 清除上一首歌曲信息
+	for i in mscInfoView.get_children():
+		i.queue_free()
+	
+	mscName.text = mscList[currentIndex]
+	scoreLabel.text = "最高分" + score[currentIndex]
+	
+	# 设置歌曲信息
+	for i in mscInfo:
+		var label = Label.new()
+		label.text = i
+		mscInfoView.add_child(label)
+	# 设置背景
+	textureRect.texture = ImageTexture.create_from_image(
 		Image.load_from_file(
 			GlobalSystem.saved_msclist_path + mscList[currentIndex] + "/cover.png"
 		)
@@ -108,6 +121,7 @@ func set_info():
 	
 func _on_msc_list_item_selected(index):
 	currentIndex = index
+	get_msc_info()
 	set_info()
 
 

@@ -59,5 +59,5 @@ func _on_gh_link_2_pressed():
 	OS.shell_open("https://github.com/StarrySeaDev")
 
 
-func _on_path_text_edit_text_submitted(new_text):
-	GlobalSystem.saved_msclist_path = new_text
+func _on_path_text_edit_text_submitted(path):
+	GlobalSystem.saved_msclist_path = path

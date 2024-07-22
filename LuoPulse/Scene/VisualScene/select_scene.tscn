@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhjbbmt3cc4xk"]
+[gd_scene load_steps=8 format=3 uid="uid://bhjbbmt3cc4xk"]
 
 [ext_resource type="Script" path="res://Script/VisualScenes/select_scene.gd" id="2_cxclp"]
 [ext_resource type="Texture2D" uid="uid://cpgsf8udt415i" path="res://Resource/Img/17.png" id="2_kfirc"]
@@ -8,9 +8,6 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_l0kkl"]
 font_size = 50
-
-[sub_resource type="LabelSettings" id="LabelSettings_x3drk"]
-font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_wkany"]
 font_size = 35
@@ -83,14 +80,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SongName" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
+[node name="MscName" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
 layout_mode = 2
 text = "歌曲名"
 label_settings = SubResource("LabelSettings_l0kkl")
 
-[node name="SongInfoLabel" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
+[node name="MscInfoView" type="GridContainer" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
 layout_mode = 2
-label_settings = SubResource("LabelSettings_x3drk")
+size_flags_vertical = 3
+columns = 2
 
 [node name="LevelBar" type="TabBar" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
 layout_mode = 2
