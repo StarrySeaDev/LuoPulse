@@ -12,5 +12,5 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	GlobalScene.play_click_audio()
 	get_tree().change_scene_to_file("res://Scene/VisualScene/start_scene.tscn")
+	GlobalScene.play_click_audio()

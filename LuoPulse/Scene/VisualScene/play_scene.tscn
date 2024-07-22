@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://d2s53txwsqj4v"]
 
-[ext_resource type="Script" path="res://Script/play_scene.gd" id="1_qxdkb"]
+[ext_resource type="Script" path="res://Script/play_scene.gd" id="1_gfd0d"]
 [ext_resource type="FontFile" uid="uid://du5po75t5by2" path="res://Resource/Font/汉仪洛天依体简.ttf" id="2_ckpc2"]
 [ext_resource type="Texture2D" uid="uid://cpgsf8udt415i" path="res://Resource/Img/17.png" id="2_rnm7q"]
 [ext_resource type="Script" path="res://Script/DecisionLine.gd" id="4_03xr8"]
@@ -144,7 +144,7 @@ thickness = 5
 
 [node name="PlayScene" type="Node2D"]
 process_mode = 3
-script = ExtResource("1_qxdkb")
+script = ExtResource("1_gfd0d")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -577.0

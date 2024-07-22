@@ -30,6 +30,7 @@ func _ready():
 		get_score()
 		get_msc_info()
 		set_info()
+		$VBoxContainer/HBoxContainer/Control/ColorRect.visible = true
 		get_node("VBoxContainer/HBoxContainer/Control/VBoxContainer").visible = true
 		mscListView.select(currentIndex)
 	
