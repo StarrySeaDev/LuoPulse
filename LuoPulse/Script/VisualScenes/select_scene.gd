@@ -24,8 +24,6 @@ func _ready():
 	
 	get_msc_list()
 	
-	print(mscList)
-	
 	if(!mscList.is_empty()):
 		for i in mscList:
 			mscListView.add_item(i)
@@ -42,7 +40,7 @@ func _process(delta):
 func get_msc_list():
 	# 根据路径打开歌单记录文件
 	var file = FileAccess.open(GlobalSystem.saved_msclist_path + "MscList.txt", FileAccess.READ)
-	print("opened")
+
 	if file == null:
 		return
 	
@@ -62,17 +60,20 @@ func get_score():
 	for i in mscList:
 		
 		# 记录歌曲分数的文件
-		var file_path = GlobalSystem.saved_msclist_path + i.text + "/" + "score.txt"
+		var file_path = GlobalSystem.saved_msclist_path + i + "/" + "score.txt"
 		var file = FileAccess.open(file_path, FileAccess.READ)
 		
 		# 未打开文件, 分数设 0
 		if file == null or !file.is_open():
-			score.append(0)
+			score.append("0")
 			return
 		
 		if file.is_open():
 			var data = file.get_as_text()
-			score.append(data)
+			if (!data == null):
+				score.append(data)
+			else:
+				score.append("0")
 
 # 获取歌曲信息
 func get_msc_info():
@@ -96,8 +97,8 @@ func get_msc_info():
 # 
 func set_info():
 	$VBoxContainer/HBoxContainer/Control/VBoxContainer/SongName.text = mscList[currentIndex]
-	$VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer/ScoreLabel.text = score[currentIndex]
-	$VBoxContainer/HBoxContainer/Control/VBoxContainer/SongInfoLabel.twxt = mscInfo[currentIndex]
+	$VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer/ScoreLabel.text = "最高分" + score[currentIndex]
+	$VBoxContainer/HBoxContainer/Control/VBoxContainer/SongInfoLabel.text = mscInfo[currentIndex]
 	$TextureRect.texture = ImageTexture.create_from_image(
 		Image.load_from_file(
 			GlobalSystem.saved_msclist_path + mscList[currentIndex] + "/cover.png"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcmwedavamcvl"]
+[gd_scene load_steps=9 format=3 uid="uid://dcmwedavamcvl"]
 
 [ext_resource type="Theme" uid="uid://cr5645fhno242" path="res://Resource/UITheme.tres" id="1_76krm"]
 [ext_resource type="Texture2D" uid="uid://cpgsf8udt415i" path="res://Resource/Img/17.png" id="1_taakf"]
@@ -8,6 +8,12 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_l0kkl"]
 font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3drk"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_wkany"]
+font_size = 35
 
 [node name="select_scene1" type="Control"]
 layout_mode = 3
@@ -58,8 +64,16 @@ allow_search = false
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.490196)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Control"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,6 +88,7 @@ label_settings = SubResource("LabelSettings_l0kkl")
 
 [node name="SongInfoLabel" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
 layout_mode = 2
+label_settings = SubResource("LabelSettings_x3drk")
 
 [node name="LevelBar" type="TabBar" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
 layout_mode = 2
@@ -91,6 +106,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 text = "最高分  "
+label_settings = SubResource("LabelSettings_wkany")
 
 [node name="StartButton" type="Button" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
