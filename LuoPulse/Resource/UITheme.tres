@@ -1,7 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cr5645fhno242"]
-
-[ext_resource type="FontFile" uid="uid://c1m4312u6a05" path="res://Resource/Font/SanJiYuanTiJian-2.ttf" id="1_v2uw4"]
-
-[resource]
-default_font = ExtResource("1_v2uw4")
-default_font_size = 25
