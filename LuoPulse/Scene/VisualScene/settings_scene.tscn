@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cn7aw6wqym2jn"]
+[gd_scene load_steps=12 format=3 uid="uid://pxhq23hn4r6m"]
 
 [ext_resource type="Theme" uid="uid://cr5645fhno242" path="res://Resource/UITheme.tres" id="1_li654"]
 [ext_resource type="Texture2D" uid="uid://3ko8pv2n6v6k" path="res://Resource/Img/1714708251113.jpg" id="2_4ylg3"]
 [ext_resource type="Script" path="res://Script/VisualScenes/settings_scene.gd" id="2_id2at"]
 [ext_resource type="PackedScene" uid="uid://cojwyjeq1a47n" path="res://Scene/WidgetScene/title_bar.tscn" id="3_jwj8r"]
 [ext_resource type="Texture2D" uid="uid://bil0hsnon1iek" path="res://icon-LP.png" id="4_fbau3"]
-[ext_resource type="Texture2D" uid="uid://13aqs0g32tus" path="res://Resource/Img/headimg.png" id="5_c0lpm"]
+[ext_resource type="Texture2D" uid="uid://c3slti1mheln" path="res://Resource/Img/headimg.png" id="5_c0lpm"]
 [ext_resource type="FontFile" uid="uid://du5po75t5by2" path="res://Resource/Font/汉仪洛天依体简.ttf" id="5_igdv4"]
+[ext_resource type="Texture2D" uid="uid://b88jltdtgchsd" path="res://Resource/Img/headimg2.jpg" id="8_abswa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s2syy"]
 font_size = 30
@@ -71,6 +72,20 @@ theme_override_constants/margin_right = 70
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Path" type="HBoxContainer" parent="VBoxContainer/TabContainer/游戏/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PathLable" type="Label" parent="VBoxContainer/TabContainer/游戏/MarginContainer/VBoxContainer/Path"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "歌单路径"
+
+[node name="PathTextEdit" type="LineEdit" parent="VBoxContainer/TabContainer/游戏/MarginContainer/VBoxContainer/Path"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text_direction = 1
 
 [node name="TrackKey" type="VBoxContainer" parent="VBoxContainer/TabContainer/游戏/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -272,7 +287,6 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 texture = ExtResource("5_c0lpm")
-expand_mode = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/DeveloperInfo/HBoxContainer"]
 layout_mode = 2
@@ -284,15 +298,46 @@ size_flags_horizontal = 10
 
 [node name="BiliLink" type="Button" parent="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/DeveloperInfo/HBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 text = "BiliBili"
 
 [node name="GHLink" type="Button" parent="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/DeveloperInfo/HBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 text = "GitHub"
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/DeveloperInfo"]
+layout_mode = 2
+
+[node name="HeadImg" type="TextureRect" parent="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/DeveloperInfo/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("8_abswa")
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/DeveloperInfo/HBoxContainer2"]
+layout_mode = 2
+text = "星海流歌Simple"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/DeveloperInfo/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="BiliLink2" type="Button" parent="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/DeveloperInfo/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "BiliBili"
+
+[node name="GHLink2" type="Button" parent="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/DeveloperInfo/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "GitHub"
+
+[connection signal="text_submitted" from="VBoxContainer/TabContainer/游戏/MarginContainer/VBoxContainer/Path/PathTextEdit" to="." method="_on_path_text_edit_text_submitted"]
 [connection signal="value_changed" from="VBoxContainer/TabContainer/音频/MarginContainer/VBoxContainer/Adjust/AdjustSpinBox" to="." method="_on_adjust_spin_box_value_changed"]
 [connection signal="drag_ended" from="VBoxContainer/TabContainer/音频/MarginContainer/VBoxContainer/Volume/VolumeHSlider" to="." method="_on_volume_h_slider_drag_ended"]
 [connection signal="drag_ended" from="VBoxContainer/TabContainer/视频/MarginContainer/VBoxContainer/Light/LightHSlider" to="." method="_on_light_h_slider_drag_ended"]
 [connection signal="pressed" from="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_pj_link_pressed"]
 [connection signal="pressed" from="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/DeveloperInfo/HBoxContainer/HBoxContainer/BiliLink" to="." method="_on_bili_link_pressed"]
 [connection signal="pressed" from="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/DeveloperInfo/HBoxContainer/HBoxContainer/GHLink" to="." method="_on_gh_link_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/DeveloperInfo/HBoxContainer2/HBoxContainer/BiliLink2" to="." method="_on_bili_link_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/关于/MarginContainer/VBoxContainer/DeveloperInfo/HBoxContainer2/HBoxContainer/GHLink2" to="." method="_on_gh_link_2_pressed"]

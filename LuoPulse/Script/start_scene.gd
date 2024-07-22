@@ -16,4 +16,4 @@ func _on_start_button_button_down():
 # 设置按钮
 func _on_setting_button_button_down():
 	GlobalScene.play_click_audio()
-	get_tree().change_scene_to_file("res://Scene/VisualScene/setting_scene.tscn")
+	get_tree().change_scene_to_file("res://Scene/VisualScene/settings_scene.tscn")

@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhjbbmt3cc4xk"]
+[gd_scene load_steps=6 format=3 uid="uid://bhjbbmt3cc4xk"]
 
-[ext_resource type="Script" path="res://Script/select_scene.gd" id="1_epcql"]
 [ext_resource type="FontFile" uid="uid://du5po75t5by2" path="res://Resource/Font/汉仪洛天依体简.ttf" id="2_eg1p0"]
 [ext_resource type="Texture2D" uid="uid://cpgsf8udt415i" path="res://Resource/Img/17.png" id="2_kfirc"]
 [ext_resource type="Script" path="res://Script/MscList.gd" id="3_0it41"]
@@ -13,7 +12,6 @@ layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_epcql")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0

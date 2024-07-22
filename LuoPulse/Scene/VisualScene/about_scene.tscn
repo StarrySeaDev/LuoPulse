@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjv4oc38f6kk2"]
+[gd_scene load_steps=4 format=3 uid="uid://b7s0pg4jljklt"]
 
 [ext_resource type="Texture2D" uid="uid://3ko8pv2n6v6k" path="res://Resource/Img/1714708251113.jpg" id="1_ay7ai"]
-[ext_resource type="Script" path="res://Script/about_scene.gd" id="1_rj4dx"]
 [ext_resource type="FontFile" uid="uid://du5po75t5by2" path="res://Resource/Font/汉仪洛天依体简.ttf" id="1_tr70r"]
-[ext_resource type="Texture2D" uid="uid://13aqs0g32tus" path="res://Resource/Img/headimg.png" id="2_lplnt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_twife"]
+load_path = "res://.godot/imported/headimg.png-f786d081b902ed3e7e8b8965818fefcd.ctex"
 
 [node name="AboutScene" type="Control"]
 layout_mode = 3
@@ -12,7 +13,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_rj4dx")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -91,7 +91,7 @@ theme_override_constants/separation = 40
 [node name="HeadImg" type="TextureRect" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
-texture = ExtResource("2_lplnt")
+texture = SubResource("CompressedTexture2D_twife")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
@@ -143,5 +143,3 @@ size_flags_vertical = 10
 theme_override_fonts/font = ExtResource("1_tr70r")
 theme_override_font_sizes/font_size = 20
 text = "- - - - -华 · 风 · 夏 · 韵 - - 洛 · 水 · 天 · 依 - - - - -"
-
-[connection signal="button_down" from="HomeButton" to="." method="_on_home_button_button_down"]

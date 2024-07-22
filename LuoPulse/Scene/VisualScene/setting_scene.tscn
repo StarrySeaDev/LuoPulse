@@ -1,9 +1,66 @@
-[gd_scene load_steps=5 format=3 uid="uid://da3rvnllokpwl"]
+[gd_scene load_steps=5 format=3 uid="uid://ci0f8yp30uvxa"]
 
 [ext_resource type="Texture2D" uid="uid://3ko8pv2n6v6k" path="res://Resource/Img/1714708251113.jpg" id="1_8s83v"]
-[ext_resource type="Script" path="res://Script/setting_scene.gd" id="1_efs84"]
 [ext_resource type="FontFile" uid="uid://du5po75t5by2" path="res://Resource/Font/汉仪洛天依体简.ttf" id="1_v8qym"]
 [ext_resource type="Theme" uid="uid://cr5645fhno242" path="res://Resource/UITheme.tres" id="4_qu5h3"]
+
+[sub_resource type="GDScript" id="GDScript_wksav"]
+script/source = "extends Control
+
+
+# 误差调整
+@onready var adjust = $ScrollContainer/HBoxContainer/Adjust/AdjustSpinBox
+
+# 音量设置
+@onready var volume = $ScrollContainer/HBoxContainer/Volume/VolumeHSlider
+
+# 歌单路径
+@onready var path = $ScrollContainer/HBoxContainer/Path/PathTextEdit
+
+
+# 恢复默认
+func default_setting():
+	adjust.value = GlobalSystem.default_adjustment
+	volume.value = GlobalSystem.default_volume
+	path.text = GlobalSystem.default_msclist_path
+
+
+func _ready():
+	adjust.value = GlobalSystem.saved_adjustment
+	volume.value = GlobalSystem.saved_volume
+	path.text = GlobalSystem.saved_msclist_path
+
+
+# 按下恢复默认按钮
+func _on_default_button_button_down():
+	GlobalScene.play_click_audio()
+	default_setting()
+
+
+# 保存更改按钮
+func _on_save_button_button_down():
+	GlobalScene.set_volume(volume.value)
+	GlobalScene.play_click_audio()
+	
+	# 检查路径最后是否有 /
+	if path.text[path.text.length() - 1] != \"/\" and path.text[path.text.length() - 1] != \"\\\\\":
+		path.text += \"/\"
+	
+	GlobalSystem.saved_adjustment = adjust.value
+	GlobalSystem.saved_volume = volume.value
+	GlobalSystem.saved_msclist_path = path.text
+	get_tree().change_scene_to_file(\"res://Scene/VisualScene/start_scene.tscn\")
+
+
+func _on_volume_h_slider_value_changed(value):
+	GlobalScene.set_volume(volume.value)
+	GlobalScene.play_click_audio()
+
+
+@warning_ignore(\"unused_parameter\")
+func _on_adjust_spin_box_value_changed(value):
+	GlobalScene.play_click_audio()
+"
 
 [node name="SettingScene" type="Control"]
 layout_mode = 3
@@ -12,7 +69,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_efs84")
+script = SubResource("GDScript_wksav")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

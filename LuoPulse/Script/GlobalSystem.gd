@@ -18,7 +18,7 @@ var saved_adjustment = 0
 
 var saved_volume = 50
 
-var saved_msclist_path = "res://Resource/MscList/"
+var saved_msclist_path = "D:/MscList/"
 
 var saved_difficulty = 1
 

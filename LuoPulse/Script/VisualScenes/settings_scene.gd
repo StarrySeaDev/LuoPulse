@@ -16,6 +16,7 @@ func _ready():
 	adjustSpinBox.value = GlobalSystem.saved_adjustment
 	volumeHSlider.value = GlobalSystem.saved_volume
 	lightHSlider.value = GlobalSystem.saved_bg_light
+	$VBoxContainer/TabContainer/游戏/MarginContainer/VBoxContainer/Path/PathTextEdit.text = GlobalSystem.saved_msclist_path
 	track1_setbtn.text = GlobalSystem.saved_track_key[0]
 	track2_setbtn.text = GlobalSystem.saved_track_key[1]
 	track3_setbtn.text = GlobalSystem.saved_track_key[2]
@@ -48,3 +49,15 @@ func _on_volume_h_slider_drag_ended(value_changed):
 
 func _on_light_h_slider_drag_ended(value_changed):
 	GlobalSystem.saved_bg_light = value_changed
+
+
+func _on_bili_link_2_pressed():
+	OS.shell_open("https://space.bilibili.com/1913343200")
+
+
+func _on_gh_link_2_pressed():
+	OS.shell_open("https://github.com/StarrySeaDev")
+
+
+func _on_path_text_edit_text_submitted(new_text):
+	GlobalSystem.saved_msclist_path = new_text
