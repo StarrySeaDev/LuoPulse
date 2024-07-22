@@ -22,21 +22,27 @@ func _ready():
 	
 	GlobalSystem.init()
 	
-	get_song_list()
-	get_score()
+	get_msc_list()
+	
+	print(mscList)
 	
 	if(!mscList.is_empty()):
-		mscListView.item = mscList
+		for i in mscList:
+			mscListView.add_item(i)
+		get_score()
+		get_msc_info()
+		set_info()
 		get_node("VBoxContainer/HBoxContainer/Control/VBoxContainer").visible = true
+		mscListView.select(currentIndex)
 	
 func _process(delta):
 	pass
 	
 # 获取铺面列表
-func get_song_list():
+func get_msc_list():
 	# 根据路径打开歌单记录文件
-	var file = FileAccess.open("MscList.txt", FileAccess.READ)
-	
+	var file = FileAccess.open(GlobalSystem.saved_msclist_path + "MscList.txt", FileAccess.READ)
+	print("opened")
 	if file == null:
 		return
 	
@@ -69,7 +75,7 @@ func get_score():
 			score.append(data)
 
 # 获取歌曲信息
-func get_song_info():
+func get_msc_info():
 	
 	for i in mscList:
 		# 打开记录歌曲详细信息的文件
@@ -87,19 +93,25 @@ func get_song_info():
 			mscInfo.append(data) # 加入列表
 		file.close()
 
-func _on_msc_list_item_selected(index):
-	currentIndex = index
-	
-	# 设置背景
-	textureRect.texture = ImageTexture.create_from_image(
+# 
+func set_info():
+	$VBoxContainer/HBoxContainer/Control/VBoxContainer/SongName.text = mscList[currentIndex]
+	$VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer/ScoreLabel.text = score[currentIndex]
+	$VBoxContainer/HBoxContainer/Control/VBoxContainer/SongInfoLabel.twxt = mscInfo[currentIndex]
+	$TextureRect.texture = ImageTexture.create_from_image(
 		Image.load_from_file(
-			GlobalSystem.saved_msclist_path + mscList[index] + "/cover.png"
+			GlobalSystem.saved_msclist_path + mscList[currentIndex] + "/cover.png"
 		)
 	)
+	
+func _on_msc_list_item_selected(index):
+	currentIndex = index
+	set_info()
 
 
 func _on_start_button_pressed():
 	GlobalSystem.selected_msc_title = mscList[currentIndex]
+	GlobalSystem.saved_difficulty = $VBoxContainer/HBoxContainer/Control/VBoxContainer/LevelBar.current_tab + 1
 	
 	GlobalScene.play_click_audio()
 	get_tree().change_scene_to_file("res://Scene/VisualScene/play_scene.tscn")

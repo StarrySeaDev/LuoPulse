@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkjwf2af47bc8"]
+[gd_scene load_steps=10 format=3 uid="uid://dkjwf2af47bc8"]
 
 [ext_resource type="Theme" uid="uid://cr5645fhno242" path="res://Resource/UITheme.tres" id="1_ex2yf"]
 [ext_resource type="FontFile" uid="uid://du5po75t5by2" path="res://Resource/Font/汉仪洛天依体简.ttf" id="1_h24dc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://3ko8pv2n6v6k" path="res://Resource/Img/1714708251113.jpg" id="2_itff4"]
 [ext_resource type="Texture2D" uid="uid://114k2pjpv6u" path="res://Resource/Icons/play-fill.svg" id="5_cpyxe"]
 [ext_resource type="Texture2D" uid="uid://bps3swbsu3hy4" path="res://Resource/Icons/gear-fill.svg" id="6_ump7i"]
+[ext_resource type="Texture2D" uid="uid://d3e7avj4h6sfv" path="res://Resource/Icons/collection-fill.svg" id="7_vjvga"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c37av"]
 line_spacing = 0.0
@@ -77,12 +78,18 @@ icon_alignment = 2
 vertical_icon_alignment = 2
 expand_icon = true
 
-[node name="AboutButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="ResLibButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "功能开发中~"
 theme_override_fonts/font = ExtResource("1_h24dc")
 theme_override_font_sizes/font_size = 35
-text = "关于"
+text = " 资源库"
+icon = ExtResource("7_vjvga")
+alignment = 0
+icon_alignment = 2
+vertical_icon_alignment = 2
+expand_icon = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -104,4 +111,3 @@ label_settings = SubResource("LabelSettings_b7s6k")
 
 [connection signal="button_down" from="VBoxContainer/StartButton" to="." method="_on_start_button_button_down"]
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/SettingButton" to="." method="_on_setting_button_button_down"]
-[connection signal="button_down" from="VBoxContainer/HBoxContainer/AboutButton" to="." method="_on_about_button_button_down"]

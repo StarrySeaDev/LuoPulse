@@ -72,18 +72,21 @@ layout_mode = 2
 text = "歌曲名"
 label_settings = SubResource("LabelSettings_l0kkl")
 
+[node name="SongInfoLabel" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
+layout_mode = 2
+
 [node name="LevelBar" type="TabBar" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
 layout_mode = 2
 tab_count = 3
 tab_0/title = "简单"
-tab_1/title = "容易"
+tab_1/title = "中等"
 tab_2/title = "困难"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
