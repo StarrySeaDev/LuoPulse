@@ -1,2 +1,2 @@
-LuoPulse/.godot/
-*.translation
+# Godot 4+ specific ignores
+.godot/
