@@ -1,4 +1,11 @@
-[gd_scene format=3 uid="uid://duuuk6dk46ua7"]
+[gd_scene load_steps=7 format=3 uid="uid://duuuk6dk46ua7"]
+
+[ext_resource type="Theme" uid="uid://cbp070bdnvxi0" path="res://Assets/ui_theme.tres" id="1_i8mrh"]
+[ext_resource type="Script" path="res://Scripts/Visual/hub_scene.gd" id="2_5j8n0"]
+[ext_resource type="Texture2D" uid="uid://camopnq7ha132" path="res://Assets/Icons/collection-fill.svg" id="2_ro6f5"]
+[ext_resource type="Texture2D" uid="uid://ditnypt5gqi20" path="res://Assets/Images/1714707063867.jpg" id="3_2tsb6"]
+[ext_resource type="Texture2D" uid="uid://cigaawdldng31" path="res://Assets/Icons/gear-fill.svg" id="3_voi8l"]
+[ext_resource type="Texture2D" uid="uid://dw0h812nhvfmj" path="res://Assets/Icons/play-fill.svg" id="4_v357t"]
 
 [node name="HubScene" type="Control"]
 layout_mode = 3
@@ -7,16 +14,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_i8mrh")
+script = ExtResource("2_5j8n0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_2tsb6")
 
 [node name="UserInfo" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 298.0
+offset_bottom = 115.0
+theme_override_constants/margin_left = 30
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UserInfo"]
 layout_mode = 2
@@ -26,27 +40,54 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="UserInfo/HBoxContainer"]
 layout_mode = 2
+text = "游客"
 
 [node name="AppTile" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
+offset_left = -597.0
+offset_bottom = 119.0
 grow_horizontal = 0
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 50
+
+[node name="ColorRect" type="ColorRect" parent="AppTile"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.364706)
+
+[node name="MarginContainer" type="MarginContainer" parent="AppTile"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AppTile/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AppTile/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Luo Pulse v1.0beta
+"
+
+[node name="TimeLabel" type="Label" parent="AppTile/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "00:00:00"
 
 [node name="CharacterPic" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 40.0
+offset_top = -463.0
+offset_right = 362.0
 grow_vertical = 0
+theme_override_constants/margin_left = 20
 
 [node name="TextureRect2" type="TextureRect" parent="CharacterPic"]
 layout_mode = 2
+expand_mode = 1
 
 [node name="ButtonGrup" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -55,19 +96,36 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
+offset_left = -352.0
+offset_top = -178.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ButtonGrup"]
 layout_mode = 2
 
 [node name="ResMgrBtn" type="Button" parent="ButtonGrup/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 8
+text = "资源"
+icon = ExtResource("2_ro6f5")
 
 [node name="SettingsBtn" type="Button" parent="ButtonGrup/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 8
+text = "设置"
+icon = ExtResource("3_voi8l")
 
 [node name="StartBtn" type="Button" parent="ButtonGrup/HBoxContainer"]
 layout_mode = 2
+text = "开始"
+icon = ExtResource("4_v357t")
+alignment = 0
+icon_alignment = 2
+vertical_icon_alignment = 2
+
+[connection signal="pressed" from="ButtonGrup/HBoxContainer/ResMgrBtn" to="." method="_on_res_mgr_btn_pressed"]
+[connection signal="pressed" from="ButtonGrup/HBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="ButtonGrup/HBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfvvgae53w7p0"]
+
+[ext_resource type="Texture2D" uid="uid://c8gumj4lmfrfp" path="res://Assets/Icons/3994376_arrow_back_left_navigation_previous_icon.svg" id="1_vaupn"]
+[ext_resource type="Script" path="res://Scripts/Widgets/app_bar.gd" id="1_wo5p0"]
+
+[node name="AppBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wo5p0")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 326.0
+offset_bottom = 81.0
+text = "title"
+icon = ExtResource("1_vaupn")
+flat = true
+alignment = 0
+expand_icon = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
