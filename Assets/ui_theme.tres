@@ -4,4 +4,4 @@
 
 [resource]
 default_font = ExtResource("1_3ug5e")
-Label/font_sizes/font_size = 25
+default_font_size = 25

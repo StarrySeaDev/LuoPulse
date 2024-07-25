@@ -1,11 +1,53 @@
-[gd_scene load_steps=7 format=3 uid="uid://duuuk6dk46ua7"]
+[gd_scene load_steps=19 format=3 uid="uid://duuuk6dk46ua7"]
 
 [ext_resource type="Theme" uid="uid://cbp070bdnvxi0" path="res://Assets/ui_theme.tres" id="1_i8mrh"]
-[ext_resource type="Script" path="res://Scripts/Visual/hub_scene.gd" id="2_5j8n0"]
+[ext_resource type="Script" path="res://Scripts/Visual/Hub/hub_scene.gd" id="2_5x3mg"]
+[ext_resource type="Shader" path="res://Shader/hub_scene.gdshader" id="2_owf26"]
 [ext_resource type="Texture2D" uid="uid://camopnq7ha132" path="res://Assets/Icons/collection-fill.svg" id="2_ro6f5"]
-[ext_resource type="Texture2D" uid="uid://ditnypt5gqi20" path="res://Assets/Images/1714707063867.jpg" id="3_2tsb6"]
+[ext_resource type="Texture2D" uid="uid://bkckomqfbkekj" path="res://Assets/Images/user.jpeg" id="3_2hkyl"]
+[ext_resource type="Texture2D" uid="uid://ofyhusdxnjfs" path="res://Assets/Images/hub_bg.jpg" id="3_imp0h"]
 [ext_resource type="Texture2D" uid="uid://cigaawdldng31" path="res://Assets/Icons/gear-fill.svg" id="3_voi8l"]
 [ext_resource type="Texture2D" uid="uid://dw0h812nhvfmj" path="res://Assets/Icons/play-fill.svg" id="4_v357t"]
+[ext_resource type="Shader" path="res://Shader/radius.gdshader" id="5_3bvb8"]
+[ext_resource type="Texture2D" uid="uid://rxksjryk1vy8" path="res://Assets/Images/char.png" id="5_tec6b"]
+[ext_resource type="Script" path="res://Scripts/Visual/Hub/TimeLabel.gd" id="7_jdep5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_matop"]
+shader = ExtResource("2_owf26")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k3c71"]
+shader = ExtResource("5_3bvb8")
+shader_parameter/texture_size = Vector2(200, 200)
+shader_parameter/radius = 100.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5pgr"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64imr"]
+content_margin_left = 30.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dwsd"]
+content_margin_left = 30.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b223u"]
+content_margin_left = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.4, 0.8, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6viys"]
+bg_color = Color(0, 0.513726, 0.698039, 0.843137)
 
 [node name="HubScene" type="Control"]
 layout_mode = 3
@@ -15,31 +57,41 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_i8mrh")
-script = ExtResource("2_5j8n0")
+script = ExtResource("2_5x3mg")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_matop")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_2tsb6")
+texture = ExtResource("3_imp0h")
+expand_mode = 1
 
 [node name="UserInfo" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_right = 298.0
 offset_bottom = 115.0
 theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UserInfo"]
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="UserInfo/HBoxContainer"]
+material = SubResource("ShaderMaterial_k3c71")
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+texture = ExtResource("3_2hkyl")
+expand_mode = 4
 
 [node name="Label" type="Label" parent="UserInfo/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
 text = "游客"
 
 [node name="AppTile" type="MarginContainer" parent="."]
@@ -47,15 +99,15 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -597.0
+offset_left = -669.0
 offset_bottom = 119.0
 grow_horizontal = 0
-theme_override_constants/margin_top = 30
+theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 50
 
-[node name="ColorRect" type="ColorRect" parent="AppTile"]
+[node name="PanelContainer" type="PanelContainer" parent="AppTile"]
 layout_mode = 2
-color = Color(0, 0, 0, 0.364706)
+theme_override_styles/panel = SubResource("StyleBoxFlat_k5pgr")
 
 [node name="MarginContainer" type="MarginContainer" parent="AppTile"]
 layout_mode = 2
@@ -74,58 +126,64 @@ text = "Luo Pulse v1.0beta
 layout_mode = 2
 size_flags_horizontal = 10
 text = "00:00:00"
+script = ExtResource("7_jdep5")
 
 [node name="CharacterPic" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -463.0
-offset_right = 362.0
+offset_top = -623.0
+offset_right = 729.0
+offset_bottom = 347.0
 grow_vertical = 0
 theme_override_constants/margin_left = 20
 
 [node name="TextureRect2" type="TextureRect" parent="CharacterPic"]
 layout_mode = 2
+texture = ExtResource("5_tec6b")
 expand_mode = 1
 
-[node name="ButtonGrup" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -352.0
-offset_top = -178.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 50
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 855.0
+offset_top = 568.0
+offset_right = 1279.0
+offset_bottom = 657.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ButtonGrup"]
+[node name="ResMgrBtn" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-
-[node name="ResMgrBtn" type="Button" parent="ButtonGrup/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 8
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_64imr")
 text = "资源"
 icon = ExtResource("2_ro6f5")
 
-[node name="SettingsBtn" type="Button" parent="ButtonGrup/HBoxContainer"]
+[node name="SettingsBtn" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_6dwsd")
 text = "设置"
 icon = ExtResource("3_voi8l")
 
-[node name="StartBtn" type="Button" parent="ButtonGrup/HBoxContainer"]
-layout_mode = 2
+[node name="StartBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1284.0
+offset_top = 446.0
+offset_right = 1494.0
+offset_bottom = 656.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_b223u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6viys")
 text = "开始"
 icon = ExtResource("4_v357t")
-alignment = 0
 icon_alignment = 2
 vertical_icon_alignment = 2
 
-[connection signal="pressed" from="ButtonGrup/HBoxContainer/ResMgrBtn" to="." method="_on_res_mgr_btn_pressed"]
-[connection signal="pressed" from="ButtonGrup/HBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
-[connection signal="pressed" from="ButtonGrup/HBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="HBoxContainer/ResMgrBtn" to="." method="_on_res_mgr_btn_pressed"]
+[connection signal="pressed" from="HBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="StartBtn" to="." method="_on_start_btn_pressed"]
