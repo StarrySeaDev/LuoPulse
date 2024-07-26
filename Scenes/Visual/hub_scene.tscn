@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://duuuk6dk46ua7"]
+[gd_scene load_steps=21 format=3 uid="uid://duuuk6dk46ua7"]
 
 [ext_resource type="Theme" uid="uid://cbp070bdnvxi0" path="res://Assets/ui_theme.tres" id="1_i8mrh"]
 [ext_resource type="Script" path="res://Scripts/Visual/Hub/hub_scene.gd" id="2_5x3mg"]
@@ -33,9 +33,13 @@ bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ky8eo"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dwsd"]
 content_margin_left = 30.0
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e4m3y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b223u"]
 content_margin_left = 10.0
@@ -46,8 +50,7 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6viys"]
-bg_color = Color(0, 0.513726, 0.698039, 0.843137)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5avim"]
 
 [node name="HubScene" type="Control"]
 layout_mode = 3
@@ -133,57 +136,81 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -623.0
-offset_right = 729.0
+offset_top = -503.0
+offset_right = 624.0
 offset_bottom = 347.0
 grow_vertical = 0
-theme_override_constants/margin_left = 20
 
 [node name="TextureRect2" type="TextureRect" parent="CharacterPic"]
 layout_mode = 2
 texture = ExtResource("5_tec6b")
 expand_mode = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 855.0
-offset_top = 568.0
-offset_right = 1279.0
-offset_bottom = 657.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -538.0
+offset_top = -240.0
+grow_horizontal = 0
+grow_vertical = 0
 
-[node name="ResMgrBtn" type="Button" parent="HBoxContainer"]
+[node name="Container" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Container"]
+layout_mode = 2
+offset_left = -87.0
+offset_top = 90.0
+offset_right = 287.0
+offset_bottom = 185.0
+size_flags_horizontal = 0
+
+[node name="ResMgrBtn" type="Button" parent="MarginContainer/Container/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_64imr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_64imr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_64imr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ky8eo")
 text = "资源"
 icon = ExtResource("2_ro6f5")
 
-[node name="SettingsBtn" type="Button" parent="HBoxContainer"]
+[node name="SettingsBtn" type="Button" parent="MarginContainer/Container/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_6dwsd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6dwsd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6dwsd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e4m3y")
 text = "设置"
 icon = ExtResource("3_voi8l")
 
-[node name="StartBtn" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1284.0
-offset_top = 446.0
-offset_right = 1494.0
-offset_bottom = 656.0
+[node name="StartBtn" type="Button" parent="MarginContainer/Container"]
+layout_mode = 2
+offset_left = 292.0
+offset_top = -8.0
+offset_right = 479.0
+offset_bottom = 183.0
+size_flags_horizontal = 8
 focus_mode = 0
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b223u")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6viys")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b223u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b223u")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5avim")
 text = "开始"
 icon = ExtResource("4_v357t")
 icon_alignment = 2
 vertical_icon_alignment = 2
 
-[connection signal="pressed" from="HBoxContainer/ResMgrBtn" to="." method="_on_res_mgr_btn_pressed"]
-[connection signal="pressed" from="HBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
-[connection signal="pressed" from="StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/Container/HBoxContainer/ResMgrBtn" to="." method="_on_res_mgr_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/Container/HBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/Container/StartBtn" to="." method="_on_start_btn_pressed"]

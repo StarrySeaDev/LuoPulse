@@ -8,7 +8,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# var time_dict = Time.get_time_dict_from_system()
-	# var time = time_dict["hour"] as String + " : " + time_dict["minute"] as String + " : " + time_dict["second"] as String
-	# text = time
-	pass
+	var time_dict = Time.get_time_dict_from_system()
+	var time = str(time_dict["hour"]) + ":" + str(time_dict["minute"]) + ":" + str(time_dict["second"])
+	text = time
