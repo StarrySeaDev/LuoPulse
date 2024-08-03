@@ -1,11 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://duuuk6dk46ua7"]
+[gd_scene load_steps=18 format=3 uid="uid://cgdu41dxvx813"]
 
 [ext_resource type="Theme" uid="uid://cbp070bdnvxi0" path="res://Assets/ui_theme.tres" id="1_i8mrh"]
 [ext_resource type="Script" path="res://Scripts/Visual/Hub/hub_scene.gd" id="2_5x3mg"]
-[ext_resource type="Shader" path="res://Shader/hub_scene.gdshader" id="2_owf26"]
 [ext_resource type="Texture2D" uid="uid://camopnq7ha132" path="res://Assets/Icons/collection-fill.svg" id="2_ro6f5"]
 [ext_resource type="Texture2D" uid="uid://bkckomqfbkekj" path="res://Assets/Images/user.jpeg" id="3_2hkyl"]
 [ext_resource type="Texture2D" uid="uid://ofyhusdxnjfs" path="res://Assets/Images/hub_bg.jpg" id="3_imp0h"]
+[ext_resource type="Shader" path="res://Shader/hub_scene_bg.gdshader" id="3_n05rd"]
 [ext_resource type="Texture2D" uid="uid://cigaawdldng31" path="res://Assets/Icons/gear-fill.svg" id="3_voi8l"]
 [ext_resource type="Texture2D" uid="uid://dw0h812nhvfmj" path="res://Assets/Icons/play-fill.svg" id="4_v357t"]
 [ext_resource type="Shader" path="res://Shader/radius.gdshader" id="5_3bvb8"]
@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://Scripts/Visual/Hub/TimeLabel.gd" id="7_jdep5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_matop"]
-shader = ExtResource("2_owf26")
+shader = ExtResource("3_n05rd")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k3c71"]
 shader = ExtResource("5_3bvb8")
@@ -21,7 +21,7 @@ shader_parameter/texture_size = Vector2(200, 200)
 shader_parameter/radius = 100.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5pgr"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0, 0, 0.607843)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -29,28 +29,22 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64imr"]
 content_margin_left = 30.0
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0, 0, 0.607843)
 corner_radius_top_left = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ky8eo"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dwsd"]
 content_margin_left = 30.0
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e4m3y"]
+bg_color = Color(0, 0, 0, 0.607843)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b223u"]
-content_margin_left = 10.0
+content_margin_left = 20.0
 content_margin_right = 15.0
 content_margin_bottom = 15.0
-bg_color = Color(0.4, 0.8, 1, 1)
+bg_color = Color(0.4, 0.8, 1, 0.74902)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5avim"]
 
 [node name="HubScene" type="Control"]
 layout_mode = 3
@@ -102,7 +96,7 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -669.0
+offset_left = -629.0
 offset_bottom = 119.0
 grow_horizontal = 0
 theme_override_constants/margin_top = 40
@@ -177,7 +171,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_64imr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_64imr")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_64imr")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ky8eo")
+theme_override_styles/focus = SubResource("StyleBoxFlat_64imr")
 text = "资源"
 icon = ExtResource("2_ro6f5")
 
@@ -189,7 +183,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_6dwsd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6dwsd")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_6dwsd")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_e4m3y")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6dwsd")
 text = "设置"
 icon = ExtResource("3_voi8l")
 
@@ -205,7 +199,7 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_b223u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_b223u")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_b223u")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5avim")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b223u")
 text = "开始"
 icon = ExtResource("4_v357t")
 icon_alignment = 2

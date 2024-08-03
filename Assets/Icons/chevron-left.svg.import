@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ditnypt5gqi20"
-path="res://.godot/imported/1714707063867.jpg-114e5efd1f2537fe0338610b38b599bf.ctex"
+uid="uid://ckkwgw4dhbns"
+path="res://.godot/imported/chevron-left.svg-2aeb58a88c18130725871fbbfcaec6c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/1714707063867.jpg"
-dest_files=["res://.godot/imported/1714707063867.jpg-114e5efd1f2537fe0338610b38b599bf.ctex"]
+source_file="res://Assets/Icons/chevron-left.svg"
+dest_files=["res://.godot/imported/chevron-left.svg-2aeb58a88c18130725871fbbfcaec6c2.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=2.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

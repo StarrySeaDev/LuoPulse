@@ -27,4 +27,4 @@ void fragment(){
 	if(!check(UV)) {
 		COLOR *= vec4(0, 0, 0, 0);
 		}
-		}
+	}
